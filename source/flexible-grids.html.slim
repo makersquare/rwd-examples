@@ -1,0 +1,30 @@
+- content_for :stylesheets do
+  = stylesheet_link_tag 'flexible-grids'
+
+h1 Responsive Grid Examples
+
+h2 Fixed Grid
+
+.container.fixed
+  section 420px
+  aside 200px
+
+h2 Flexible Grid
+
+p
+  strong RWD formula:
+  | &nbsp; target width / parent width = result
+
+.container.flexible
+  section 420px / 660px * 100%
+  aside 200px / 660px * 100%
+
+h2 Media Queries
+
+.container.media-queries
+  section
+    .large float: left;
+    .small float: none;
+  aside
+    .large float: right;
+    .small float: none;

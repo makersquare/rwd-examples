@@ -1,0 +1,98 @@
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
+
+// -----| |-----------------------------
+//      | |  BASE STYLING
+// =====| |=============================
+
+.container {
+  @include border-radius(6px);
+  background-color: #efefef;
+  @include clearfix;
+
+  section, aside {
+    background-color: rgb(142, 198, 63);
+    @include border-radius(6px);
+    font-family: 'Droid Sans', Arial, 'Helvetica Neue', 'Lucida Grande', sans-serif;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    margin: 10px;
+    text-shadow: rgba(0, 0, 0, 0.14902) 0px -1px 0px;
+  }
+}
+
+// -----| |-----------------------------
+//      | |  FIXED WIDTH
+// =====| |=============================
+
+.container.fixed {
+  width: 660px;
+
+  section {
+    float: left;
+    margin: 10px;
+    width: 420px;
+  }
+
+  aside {
+    float: right;
+    margin: 10px;
+    width: 200px;
+  }
+}
+
+// -----| |-----------------------------
+//      | |  FLEXIBLE WIDTH
+// =====| |=============================
+
+.container.flexible {
+  max-width: 660px;
+
+  section {
+    float: left;
+    margin: 10px / 660px * 100%;
+    width: 420px / 660px * 100%;
+  }
+
+  aside {
+    float: right;
+    margin: 10px / 660px * 100%;
+    width: 200px / 660px * 100%;
+  }
+}
+
+// -----| |-----------------------------
+//      | |  MEDIA QUERIES
+// =====| |=============================
+
+.container.media-queries {
+  max-width: 660px;
+
+  .small { display: none; }
+  .large { display: block; }
+
+  section {
+    float: left;
+    margin: 10px / 660px * 100%;
+    width: 420px / 660px * 100%;
+  }
+
+  aside {
+    float: right;
+    margin: 10px / 660px * 100%;
+    width: 200px / 660px * 100%;
+  }
+
+  @media all and (max-width: 420px) {
+    .small { display: block; }
+    .large { display: none; }
+
+    section, aside {
+      float: none;
+      width: auto;
+    }
+  }
+}
